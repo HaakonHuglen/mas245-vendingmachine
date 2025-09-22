@@ -6,6 +6,7 @@
 
 #include <vector>
 #include "soda.h"
+#include <string>
 
 // Declare class VendingMachine
 class VendingMachine
@@ -16,6 +17,9 @@ public:
     // Constructor.
     VendingMachine();
 
+    // constructor med eiernavn
+    VendingMachine(const std::string owner_);
+
     // Destructor.
     ~VendingMachine();
 
@@ -25,6 +29,11 @@ public:
     // Member function. Returns nothing and takes no parameters.
     void printInventory();
 
+    void printMenu();
+
+    void printTotalSales();    // Skriver ut totalt salg
+
+
 
 private:
 
@@ -33,6 +42,10 @@ private:
     // good idea due to reserved names starting with __ and because auto completion of names
     // will work more smoothly.
     std::vector<Soda> sodaTypes_;
+     std::string owner_; // ny variabel for eiernavn
+
+    unsigned int totalSales_ = 64;  // Totalt salg i kroner
+
 
 };
 

@@ -2,6 +2,14 @@
 #include <iostream>
 
 
+VendingMachine::VendingMachine(std::string owner)
+    : sodaTypes_(), owner_(owner)  // Initialiserer vector og eier
+{
+    std::cout << "Vending machine owned by " << owner_ << " constructed!" << std::endl;
+}
+
+
+
 // Definition of VendingMachine constructor.
 VendingMachine::VendingMachine()
     : sodaTypes_()  // Initialization of sodaTypes_ vector. Explicit call to the constructor.
@@ -29,3 +37,24 @@ void VendingMachine::printInventory()
 {
     std::cout << "Number of soda types registered: " << sodaTypes_.size() << std::endl;
 }
+
+void VendingMachine::printMenu(){
+    for (size_t i = 0; i < sodaTypes_.size(); i++ ){
+        std::cout << i +1 << ". " << sodaTypes_[i].name_
+                  << ", price " << sodaTypes_[i].price_
+                  << "kr, inventory " << sodaTypes_[i].inventory_
+                  << std::endl;}
+
+    if (sodaTypes_.empty())
+        std::cout << "No soda's avalible" << std::endl;
+}
+
+
+
+
+void VendingMachine::printTotalSales()
+{
+    std::cout << "Total sales: " << totalSales_ << " kr" << std::endl;
+}
+
+
